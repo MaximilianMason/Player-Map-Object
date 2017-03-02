@@ -9,6 +9,11 @@ namespace StubbedClasses
 {
     class Program
     {
+        private int gold;
+        private int score;
+        private int arrows;
+        private int turns = 0;
+        
         public int[] createHazards()
         {
             int[] r = new int[5];
@@ -16,8 +21,8 @@ namespace StubbedClasses
         }
         public int[] turnPassed()
         {
-            int[] r = new int[4];
-            return r;
+            int[] playerData = new int[4];
+            return playerData;
         }
         public int[] moved(int room)
         {
