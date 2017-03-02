@@ -5,23 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StubbedClasses
+namespace PlayerMapObject
 {
     class Program
     {
-        private int gold;
-        private int score;
-        private int arrows;
+        private int gold = 5;
+        private int score = 0;
+        private int arrows = 3;
         private int turns = 0;
-        
+
         public int[] createHazards()
         {
             int[] r = new int[5];
             return r;
         }
-        public int[] turnPassed()
+        public int[] turnPassed(Boolean arrowShot)
         {
             int[] playerData = new int[4];
+            playerData[0] = gold++;
+            if (arrowShot)
+                playerData[1] = arrows--;
+            else
+                playerData[1] = arrows;
+            playerData[2] = turns++;
+            playerData[3] = score;
+
             return playerData;
         }
         public int[] moved(int room)
