@@ -7,17 +7,41 @@ using System.Threading.Tasks;
 
 namespace PlayerMapObject
 {
-    class Program
+    public class PlayerMapObject
     {
-        private int gold = 5;
-        private int score = 0;
-        private int arrows = 3;
-        private int turns = 0;
-
-        public int[] createHazards()
+        private int gold;
+        private int score;
+        private int arrows;
+        private int turns;
+        private int pit1;
+        private int pit2;
+        private int bat1;
+        private int bat2;
+        private int wumpus;
+        
+        public PlayerMapObject()
         {
-            int[] r = new int[5];
-            return r;
+            Random num = new Random();
+            gold = 5;
+            score = 0;
+            arrows = 3;
+            turns = 0;    
+            pit1 = num.next(1, 31);
+            pit2 = num.next(1, 31);
+            bat1 = num.next(1, 31);
+            bat2 = num.next(1, 31);
+            wumpus = num.next(1, 31);
+        }
+
+        public int[] getHazards()
+        {
+            int[] hazardLoc = new int[5];
+            hazardLoc[0] = pit1;
+            hazardLoc[1] = pit2;
+            hazardLoc[2] = bat1;
+            hazardLoc[3] = bat2;
+            hazardLoc[4] = wumpus;
+            return hazardLoc;
         }
         public int[] turnPassed(Boolean arrowShot)
         {
